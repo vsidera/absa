@@ -1,14 +1,19 @@
 import axios from 'axios';
 import React , {useState, useEffect} from 'react'
 import qs from 'qs';
+import { useParams } from 'react-router-dom';
 
 export default function Absa() {
 
   const [result, setResult] = useState(null);
 
+  const {uuid} = useParams();
+
+  console.log("This is",uuid)
+
   const absa = async () => {
     try{
-      let res = await axios.get('http://payment.localhost/api/v1/payments/absa/signed_data/1857e4ff-fe36-4b24-877d-e58b385b2fef')
+      let res = await axios.get(`http://payment.localhost/api/v1/payments/absa/signed_data/${uuid}`)
 
       setResult(res.data);
     } catch (e) {
@@ -17,6 +22,8 @@ export default function Absa() {
   }
 
   ;
+
+
 
   useEffect (() =>{
     absa()

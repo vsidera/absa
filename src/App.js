@@ -1,15 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
 import Absa from './components/Absa';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
+    <Router>
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Absa/>
+        <Switch>
+          <Route exact path="/absa/:uuid">
+            <Absa/>
+          </Route>
+        </Switch>
+       
       </header>
     </div>
+    </Router>
+    
+  
   );
 }
 

@@ -1,2 +1,5 @@
 2022/04/05-23:46:20.219 3 Creating DB /home/siderra/Documents/Absa-web/my-app/”/var/tmp/Chrome”/Default/Local Storage/leveldb since it was missing.
 2022/04/05-23:46:20.845 3 Reusing MANIFEST /home/siderra/Documents/Absa-web/my-app/”/var/tmp/Chrome”/Default/Local Storage/leveldb/MANIFEST-000001
+2022/04/06-01:07:36.666 18 Level-0 table #5: started
+2022/04/06-01:07:36.723 18 Level-0 table #5: 93780 bytes OK
+2022/04/06-01:07:36.767 18 Delete type=0 #3
