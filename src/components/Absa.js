@@ -9,8 +9,6 @@ export default function Absa() {
 
   const {uuid} = useParams();
 
-  console.log("This is",uuid)
-
   const absa = async () => {
     try{
       let res = await axios.get(`http://payment.localhost/api/v1/payments/absa/signed_data/${uuid}`)
@@ -22,8 +20,6 @@ export default function Absa() {
   }
 
   ;
-
-
 
   useEffect (() =>{
     absa()
@@ -63,7 +59,14 @@ const qs = require('qs');
   return (
     <div>
       <div className="user">
-      <table>
+      <div class="container-fluid">
+        <div class="row">
+          {/* <h1>ABSA DATA</h1> */}
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-6">
+          <h1>ABSA DATA</h1>
+          <table>
         <tbody>
           <tr>
             <th>Attribute</th>
@@ -71,67 +74,63 @@ const qs = require('qs');
             
           </tr>
           <tr>
-            <td>Access Key</td>
+            <td>Access Key:</td>
              {result !== null && <td>{result['access_key']}</td>}
           
           </tr>
           <tr>
-            <td>Profile Id</td>
+            <td>Profile Id:</td>
             {result !== null && <td>{result['profile_id']}</td>}
           
           </tr>
           <tr>
-            <td>Transaction Uuid</td>
+            <td>Transaction Uuid:</td>
             {result !== null && <td>{result['transaction_uuid']}</td>}
           
           </tr>
+
           <tr>
-            <td> Signed Field Names</td>
-             {result !== null && <td>{result['signed_field_names']}</td>}
-          
-          </tr>
-          <tr>
-            <td>Unsigned Field Names</td>
+            <td>Unsigned Field Names:</td>
             {result !== null && <td>{result['unsigned_field_names']}</td>}
           
           </tr>
           <tr>
-            <td>Date Time</td>
+            <td>Date Time:</td>
             {result !== null && <td>{result['signed_date_time']}</td>}
           
           </tr>
           <tr>
-            <td>Locale</td>
+            <td>Locale:</td>
              {result !== null && <td>{result['locale']}</td>}
           
           </tr>
           <tr>
-            <td>Transaction Type</td>
+            <td>Transaction Type:</td>
             {result !== null && <td>{result['transaction_type']}</td>}
           
           </tr>
           <tr>
-            <td>Reference Number</td>
+            <td>Reference Number:</td>
             {result !== null && <td>{result['reference_number']}</td>}
           
           </tr>
           <tr>
-            <td> Amount</td>
+            <td> Amount:</td>
              {result !== null && <td>{result['amount']}</td>}
           
           </tr>
           <tr>
-            <td>Currency</td>
+            <td>Currency:</td>
             {result !== null && <td>{result['currency']}</td>}
           
           </tr>
           <tr>
-            <td>Submit</td>
+            <td>Submit:</td>
             {result !== null && <td>{result['submit']}</td>}
           
           </tr>
           <tr>
-            <td>Signature</td>
+            <td>Signature:</td>
             {result !== null && <td>{result['signature']}</td>}
           
           </tr>
@@ -139,9 +138,16 @@ const qs = require('qs');
         </tbody>
   
         </table>
+        <button className="button" onClick={postData}>CONFIRM</button>
+          </div>
+          <div class="col-md-3">
+          </div>
+        </div>
+      </div>  
+      
   
     </div>
-       <button onClick={postData}>CONFIRM</button>
+       
       
     </div>
     
