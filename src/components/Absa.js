@@ -7,6 +7,8 @@ export default function Absa() {
 
   const [result, setResult] = useState(null);
 
+  const [checkout, setCheckout] = useState(null);
+
   const {uuid} = useParams();
 
   const absa = async () => {
@@ -47,10 +49,12 @@ const qs = require('qs');
     if (!response.data){
       throw Error("ERROR");  
     }
-    return response;
-  }).then(data=> {
-
+    let responseHtml = response.data;
     
+   //open the new window and write your HTML to it
+    var myWindow = window.open("", "response", "resizable=yes");
+    myWindow.document.write(responseHtml);
+   
   })
   .catch(error => console.log(error));
   
@@ -59,12 +63,12 @@ const qs = require('qs');
   return (
     <div>
       <div className="user">
-      <div class="container-fluid">
-        <div class="row">
+      <div className="container-fluid">
+        <div className="row">
           {/* <h1>ABSA DATA</h1> */}
-          <div class="col-md-3">
+          <div className="col-md-3">
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
           <h1>ABSA DATA</h1>
           <table>
         <tbody>
@@ -140,7 +144,7 @@ const qs = require('qs');
         </table>
         <button className="button" onClick={postData}>CONFIRM</button>
           </div>
-          <div class="col-md-3">
+          <div className="col-md-3">
           </div>
         </div>
       </div>  
